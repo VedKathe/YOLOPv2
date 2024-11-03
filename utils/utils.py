@@ -195,7 +195,7 @@ def show_seg_result(img, result, palette=None,is_demo=False):
     assert len(palette.shape) == 2
     
     if not is_demo:
-        color_seg = np.zeros((result.shape[0], result.shape[1], 3), dtype=np.uint8)
+        color_seg = np.zeros((result[0].shape[0], result[0].shape[1], 3), dtype=np.uint8)
         for label, color in enumerate(palette):
             color_seg[result == label, :] = color
     else:
@@ -213,7 +213,7 @@ def show_seg_result(img, result, palette=None,is_demo=False):
     # img = img * 0.5 + color_seg * 0.5
     #img = img.astype(np.uint8)
     #img = cv2.resize(img, (1280,720), interpolation=cv2.INTER_LINEAR)
-    return 
+    return img
 
 
 def increment_path(path, exist_ok=True, sep=''):
